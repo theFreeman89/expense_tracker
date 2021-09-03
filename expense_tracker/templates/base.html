@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scal-1.0">
+    <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    <title>Projects - Expense Tracker</title>
+  </head>
+  <header>
+    <div class="app-title">
+      <h1>Expense Tracker</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('expense.home') }}">Report</a></li>
+        <li><a href="{{ url_for('expense.add') }}">Add</a></li>
+        {% if g.user %}
+          <div class="dropdown">
+            <button class="dropbtn">{{ g.user }}</button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('auth.logout') }}">Log Out</a>
+            </div>
+          </div>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>

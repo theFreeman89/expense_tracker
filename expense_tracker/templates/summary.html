@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form>
+    <div class="selection">
+      <label for="month">Select a month</label>
+      <select name="month" id="month">
+        {% for key, value in months.items() %}
+          <option value="{{ value }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <select name="year" id="year">
+        {% for key, value in years.items() %}
+          <option value="{{ value }}">{{ key }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" name="submit" value="Search">
+    </div>
+  </form>
+  <h2>Report for {{ date }}</h2>
+  <div class="row">
+    <div class="table1">
+      <table>
+        <caption>Expenses for the Month</caption>
+        <thead>
+          <tr>
+            <th scope="col">Edit</th>
+            <th scope="col">Date</th>
+            <th scope="col">Category</th>
+            <th scope="col">Amount</th>
+          <tr>
+        </thead>
+        {% for result in results %}
+          <tr>
+            <td><a href="{{ url_for('expense.edit', id=result.id) }}">Edit</a></td>
+            <td>{{ result.expense_date }}</td>
+            <td>{{ result.category }}</td>
+            <td>${{ '{:,.2f}'.format(result.amount) }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="table2">
+      <table>
+        <caption>By Category</caption>
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Percentage</th>
+          <tr>
+        </thead>
+        {% for category in by_category %}
+          <tr>
+            <td>{{ category.category }}</td>
+            <td>${{ '{:,.2f}'.format(category.total) }}</td>
+            <td>{{ '{:.2f}'.format((category.total / total) * 100) }}%</td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td><b>Total spent</b></td>
+          {% if total is not none %}
+            <td><b>${{ '{:,.2f}'.format(total) }}</b></td>
+          {% else %}
+            <td><b>$0.00</b></td>
+          {% endif %}
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h2>Edit</h2>
+  <ul class="theaders">
+    <li><h5>Date</h5></li>
+    <li><h5>Category</h5></li>
+    <li><h5>Amount</h5></li>
+  </ul>
+  <form action="{{ url_for('expense.edit', id=id) }}" method="POST">
+    <div class="trow">
+      <input type="date" name="date" value="{{ record.expense_date }}" required>
+      <input type="text" name="category" value="{{record.category }}" maxlength="30">
+      <input type="text" name="amount" min=".01" max="1000000" maxlength="10" value="{{ record.amount }}" required>
+    </div>
+    <div class="save-button">
+      <button type="submit" class="save">Save</button>
+    </div>
+  </form>
+{% endblock %}

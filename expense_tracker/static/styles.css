@@ -1,0 +1,161 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
+}
+
+.logo{
+  background-color: #2D2F30;
+}
+
+.app-title{
+  color: #E4E7E9;
+  background-color:  #025ccb;
+  font-size: 20px;
+}
+
+nav{
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:  #d6d9db;
+}
+
+.logo a{
+  font-size: 35px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #E4E7E9;
+}
+
+.app-title{
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links{
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  list-style: none;
+}
+
+.nav-links a{
+  text-decoration: none;
+  color: #000000;
+}
+
+.flashes{
+  list-style: none;
+  background-color: #a0db8c;
+  border: 2px solid #33bb06;
+  margin: 0;
+}
+
+.dropbtn{
+  background-color: #d6d9db;
+  color: black;
+  font-size: 16px;
+  border: none;
+  margin: 0;
+}
+
+.dropdown{
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color:  #025ccb;
+}
+
+.dropdown-content a{
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover{
+  background-color: #548efc;
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+.row{
+  display: flex;
+}
+
+.selection{
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+h2{
+  margin: 1% 0 0 2%;
+}
+.table1{
+  flex: 60%;
+  padding: 5px;
+  margin-left: 5%;
+}
+
+.table2{
+  flex: 40%;
+  padding: 5px;
+  margin-left: 2%;
+  margin-right: 10%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 5px ridge #dddddd;
+}
+
+thead{
+  background-color: #d3e1fb;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+  font-size: 18px;
+}
+td{
+  font-family: serif;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.theaders{
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 0 0 5%;
+  padding: 0;
+  list-style: none;
+}
+
+.theaders li{
+  font-size: 18px;
+}
+
+.trow{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5%;
+  width: 50%;
+}
+
+.save-button button{
+  font-size: 17px;
+  margin: 1% 0 0 2%;
+  padding: 5px 12px;
+}
